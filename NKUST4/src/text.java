@@ -1,6 +1,5 @@
-
 import java.util.ArrayList;
-/*
+
 public class text {
     public static void main (String[] args) {
        System.out.println(revHash(6933552791181934L));
@@ -9,25 +8,43 @@ public class text {
 
     public static String letters = "cdefghijlmnoqstuvxz";
 
-   public static String[] revHash(long hash) {
+   public static ArrayList<java.lang.Character> revHash(long hash) {
+       ArrayList<Character> word = new ArrayList<Character>();
+       ArrayList<Character> word2 = new ArrayList<Character>();
+       int  k = 0;
        double b;
-       int e = 0;
-       String[] count = {};
-       long a = hash;
-       //while (a <= 7) {
-
-           for (int j = 0; j < 18; j++) {
-               b = (a - j) % 23;
-               if (b == 0) {
-                   count[e] = "j";
-                   a = (a - j) / 23;
-                   System.out.println(a);
-
-               }
-          // e = e + 1;
+       long a = 6933552791181934L;
+       for (int j = 0; j <= 18; j++) {
+           b = (a - j) % 23;
+           if (b == 0) {
+               a = (a - j) / 23;
+               /*System.out.println(j);
+               System.out.println(a);
+               System.out.println(letters.charAt(j));*/
+               word.add(letters.charAt(j));
+               j = 0;
+               k++;
            }
-       //}
-       return count;
+           b = (a - j) % 23;
+           if (b == 0) {
+               a = (a - j) / 23;
+               /*System.out.println(j);
+               System.out.println(a);
+               System.out.println(letters.charAt(j));*/
+               word.add(letters.charAt(j));
+               j = 0;
+               k++;
+           }
+           if(a <= 7){
+               break;
+           }
+       }
+       //System.out.println(word);
+       for(int z = k - 1; z >= 0; z--){
+           word2.add(word.get(z));
+       }
+       //System.out.println(word2);
+       return word2;
    }
 
     public static long hash(String s){
@@ -38,16 +55,16 @@ public class text {
         return h;
     }
 }
-        */
 
-
+/*
 public class text {
     public static String letters = "cdefghijlmnoqstuvxz";
     public static void main(String[] args) {
-        int e = 0 , k = 0;
+        ArrayList<Character> word = new ArrayList<Character>();
+        ArrayList<Character> word2 = new ArrayList<Character>();
+        int k = 0;
         double b;
         long a = 6933552791181934L;
-        char[] count = {};
             for (int j = 0; j <= 18; j++) {
                 b = (a - j) % 23;
                 if (b == 0) {
@@ -56,10 +73,9 @@ public class text {
                     System.out.println(j);
                     System.out.println(a);
                     System.out.println(letters.charAt(j));
-                    //count[e] = letters.charAt(j);
-                    //System.out.println(count[0]);
+                    word.add(letters.charAt(j));
+
                     j = 0;
-                    //e++;
                     k++;
                 }
                 b = (a - j) % 23;
@@ -68,14 +84,20 @@ public class text {
                     System.out.println(j);
                     System.out.println(a);
                     System.out.println(letters.charAt(j));
-                    //count[e] = letters.charAt(j);
+                    word.add(letters.charAt(j));
                     j = 0;
-                   // e++;
                     k++;
                 }
                 if(a <= 7){
                     break;
                 }
             }
-    }
+
+            System.out.println(word);
+            for(int z = k - 1; z >= 0; z--){
+                word2.add(word.get(z));
+            }
+        System.out.println(word2);
+        }
 }
+*/
