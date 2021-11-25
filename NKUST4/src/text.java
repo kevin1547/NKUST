@@ -8,11 +8,12 @@ public class text {
 
     public static String letters = "cdefghijlmnoqstuvxz";
 
-   public static ArrayList<java.lang.Character> revHash(long hash) {
+   public static String revHash(long hash) {
        ArrayList<Character> word = new ArrayList<Character>();
        ArrayList<Character> word2 = new ArrayList<Character>();
+       String word3 = new String();
        int  k = 0;
-       double b;
+       long b;
        long a = 6933552791181934L;
        for (int j = 0; j <= 18; j++) {
            b = (a - j) % 23;
@@ -43,8 +44,11 @@ public class text {
        for(int z = k - 1; z >= 0; z--){
            word2.add(word.get(z));
        }
-       //System.out.println(word2);
-       return word2;
+       for(int h = 0; h < k; h++){
+           word3 =word3 + word2.get(h);
+       }
+       //System.out.println(word3);
+       return word3;
    }
 
     public static long hash(String s){
