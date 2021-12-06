@@ -11,6 +11,7 @@ public class text2 {
         HashSet<String> num = new HashSet<String>();
         for(int d = 0; d < num1.length; d++){
             num.add(num1[d]);
+
         }
 
         for(String aa : num){
