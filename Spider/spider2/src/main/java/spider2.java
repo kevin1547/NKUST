@@ -91,10 +91,13 @@ public class spider2 {
                     Elements items1 = doc1.getElementsByClass("r-ent");//從doc1中選擇r-ent
                     for (Element item2 : items1) {//從r-ent中逐步搜尋素材
                         Document doc2 = Jsoup.connect(headline.absUrl("href")).get();//進入Elements newsHeadlines所抓出的href的網址
+                        //System.out.println(doc2);
                         Elements items2 = doc2.getElementsByClass("push");//從href網頁中選擇push
                         for (Element item3 : items2) {
                             String num2 = item3.getElementsByClass("push").get(0).getElementsByTag("span").get(2).text();//在class底下選擇第三個span(第一個留言的位置)
-                            System.out.println("Comment" + num2);
+                            String num3 = item3.getElementsByClass("push").get(0).getElementsByTag("span").get(1).text();
+                            System.out.println("Comment:" + num3 + num2);
+                            System.out.print("\n");
                             break;
                         }
                         break;
