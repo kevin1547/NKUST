@@ -74,33 +74,32 @@ public class spider2 {
             //String title = item.getElementsByClass("board-title").get(0).text();
             //System.out.println("Article title: ----------------------------------" + title);//PTT首頁第一篇
             //System.out.println("Article title: " + title);
-
             for (Element item1 : items) {//在b-ent裡面抓出board-name和board-title
-                String num = item1.getElementsByClass("board-name").get(0).text();//"Baseball";
+                String num = item1.getElementsByClass("board-name").get(0).text();//"Baseball";"DIABLO";
                 String title = item1.getElementsByClass("board-title").get(0).text();
                 Document doc1 = Jsoup.connect("https://www.ptt.cc/bbs/" + num + "/index.html").get();//從board-name中選擇的素材與網頁組合並進入
                 System.out.println("Board: " + num);
                 System.out.println("Article title: " + title);
-                Elements newsHeadlines = doc1.select("#main-container div.r-list-container.action-bar-margin.bbs-screen a");//
+                Elements newsHeadlines = doc1.select("#main-container div.r-list-container.action-bar-margin.bbs-screen a");
                 //System.out.println(doc1);
                 for (Element headline : newsHeadlines) {
-                    //Elements items1 = doc1.getElementsByClass("r-ent");//從doc1中選擇r-ent
-                    //for (Element item2 : items1) {//從r-ent中逐步搜尋素材
+                    Elements items1 = doc1.getElementsByClass("r-ent");//從doc1中選擇r-ent
+                    for (Element item2 : items1) {//從r-ent中逐步搜尋素材
                         Document doc2 = Jsoup.connect(headline.absUrl("href")).get();//進入Elements newsHeadlines所抓出的href的網址
-                        //System.out.println(doc2);
                         Elements items2 = doc2.getElementsByClass("push");//從href網頁中選擇push
-                        Element item3 = items2.get(0);
+                        for(Element item3 : items2){
                             String num2 = item3.getElementsByClass("push").get(0).getElementsByTag("span").get(2).text();//在class底下選擇第三個span(第一個留言的位置)
                             String num3 = item3.getElementsByClass("push").get(0).getElementsByTag("span").get(1).text();
                             System.out.println("Comment:" + num3 + num2);
-                        //break;
-                    //}
+                            break;
+                        }
+                        break;
+                    }
                     break;
                 }
                 //break;
                 System.out.print("\n");
             }
-
             //break;
             //}
         } catch (Exception e) {
