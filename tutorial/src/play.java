@@ -2,32 +2,37 @@ import java.util.Random;
 
 public class play {
     public static void main(String[] args) {
-        game player1 = new game();
+        game player1 = new game("弓箭手",25,5,10, 5,"箭雨");
         player1.setgame("弓箭手","狂戰士","魔法師");
-        player1.name = "弓箭手";
-        player1.HP = 25;
-        player1.Att = 5;
-        player1.MP = 10;
-        player1.skillName = "箭雨";
-        player1.showplayer1();
+        player1.showplayer();
+//        player1.setgame("弓箭手","狂戰士","魔法師");
+//        player1.name = "弓箭手";
+//        player1.HP = 25;
+//        player1.Att = 5;
+//        player1.MP = 10;
+//        player1.skillName = "箭雨";
+//        player1.showplayer1();
 
-        game player2 = new game();
+        game player2 = new game("狂戰士",45,4,10, 2,"連續打擊");
+        player2.showplayer();
         player2.setgame("弓箭手","狂戰士","魔法師");
-        player2.name = "狂戰士";
-        player2.HP = 45;
-        player2.Att = 4;
-        player2.MP = 10;
-        player2.skillName = "連續打擊";
-        player2.showplayer2();
+//        player2.name = "狂戰士";
+//        player2.HP = 45;
+//        player2.Att = 4;
+//        player2.MP = 10;
+//        player2.skillName = "連續打擊";
+//        player2.showplayer2();
 
-        game player3 = new game();
+        game player3 = new game("魔法師",20,15,15, 10,"豪火球");
+        player3.showplayer();
+//        game player3 = new game();
         player3.setgame("弓箭手","狂戰士","魔法師");
-        player3.name = "魔法師";
-        player3.HP = 20;
-        player3.Att = 15;
-        player3.MP = 15;
-        player3.skillName = "豪火球";
-        player3.showplayer3();
+//        player3.name = "魔法師";
+//        player3.HP = 20;
+//        player3.Att = 15;
+//        player3.MP = 15;
+//        player3.skillName = "豪火球";
+//        player3.showplayer3();
         System.out.println("\n");
 
         Random ran = new Random();
@@ -42,10 +47,10 @@ public class play {
                         player2.HP = player2.HP - player1.Att;
                         player1.MP = player1.MP - 5;
                         player1.playerAtt1();
-                        player2.showplayer2();
+                        player2.showplayer();
                         System.out.println("------------------------------");
                     } else {
-                        player1.recover1();
+                        player1.recover();
                         player1.MP = player1.MP + 5;
                         System.out.println("------------------------------");
                     }
@@ -54,10 +59,10 @@ public class play {
                         player3.HP = player3.HP - player2.Att;
                         player2.MP = player2.MP - 2;
                         player2.playerAtt2();
-                        player3.showplayer3();
+                        player3.showplayer();
                         System.out.println("------------------------------");
                     } else {
-                        player2.recover2();
+                        player2.recover();
                         player2.MP = player2.MP + 5;
                         System.out.println("------------------------------");
                     }
@@ -66,10 +71,10 @@ public class play {
                         player1.HP = player1.HP - player3.Att;
                         player3.MP = player3.MP - 10;
                         player3.playerAtt3();
-                        player1.showplayer1();
+                        player1.showplayer();
                         System.out.println("------------------------------");
                     } else {
-                        player3.recover3();
+                        player3.recover();
                         player3.MP = player3.MP + 5;
                         System.out.println("------------------------------");
                     }
@@ -78,10 +83,10 @@ public class play {
                         player3.HP = player3.HP - player1.Att;
                         player1.MP = player1.MP - 5;
                         player1.playerAtt11();
-                        player3.showplayer3();
+                        player3.showplayer();
                         System.out.println("------------------------------");
                     } else {
-                        player1.recover1();
+                        player1.recover();
                         player1.MP = player1.MP + 5;
                         System.out.println("------------------------------");
                     }
@@ -90,10 +95,10 @@ public class play {
                         player1.HP = player1.HP - player2.Att;
                         player2.MP = player2.MP - 2;
                         player2.playerAtt12();
-                        player1.showplayer1();
+                        player1.showplayer();
                         System.out.println("------------------------------");
                     } else {
-                        player2.recover2();
+                        player2.recover();
                         player2.MP = player2.MP + 5;
                         System.out.println("------------------------------");
                     }
@@ -102,10 +107,10 @@ public class play {
                         player2.HP = player2.HP - player3.Att;
                         player3.MP = player3.MP - 10;
                         player3.playerAtt13();
-                        player2.showplayer2();
+                        player2.showplayer();
                         System.out.println("------------------------------");
                     } else {
-                        player3.recover3();
+                        player3.recover();
                         player3.MP = player3.MP + 5;
                         System.out.println("------------------------------");
                     }
@@ -113,11 +118,10 @@ public class play {
             }
             else{
                 System.out.println("GAMEOVER\n最終戰績:");
-                player1.showplayer1();
-                player2.showplayer2();
-                player3.showplayer3();
+                player1.showplayer();
+                player2.showplayer();
+                player3.showplayer();
                 i = 19;
-                System.out.println("1");
             }
         }
     }
