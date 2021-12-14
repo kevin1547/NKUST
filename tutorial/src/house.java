@@ -6,9 +6,11 @@ public class house {
 
 
     void sethouse(int hp){
+
         this.height = hp;
     }
     void sethouse(double price){
+
         this.price = price;
     }
     void sethouse(String color, String brandname){
